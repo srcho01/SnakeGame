@@ -1,0 +1,8 @@
+# vscode 설정 파일
+.vscode/
+
+# 실행 파일
+*.exe
+
+# object 파일
+*.o
