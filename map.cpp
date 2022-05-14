@@ -24,6 +24,16 @@ public:
 
     int getPosition(int x, int y) {return map[x][y] - '0';}
 
+    void makeFree(int x, int y) {changeMap(x, y, 0);}
+
+    void makeHead(int x, int y) {
+        if(getPosition(x, y) == 0) changeMap(x, y, 3);
+    }
+
+    void makeBody(int x, int y) {
+        if(getPosition(x, y) == 0) changeMap(x, y, 4);
+    }
+
     void makeGrowth(int x, int y) {
         if(getPosition(x, y) == 0) changeMap(x, y, 5);
     }
