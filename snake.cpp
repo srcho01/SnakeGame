@@ -166,7 +166,7 @@ public:
   }
 
   int* getBodyPos(int num){
-    return body[num]
+    return body[num];
   }
 
   int* getTailPos(){
