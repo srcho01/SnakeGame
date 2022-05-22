@@ -160,4 +160,16 @@ public:
       head[1] = g2x;
     }
   }
+
+  int* getHeadPos(){
+    return head;
+  }
+
+  int* getBodyPos(int num){
+    return body[num]
+  }
+
+  int* getTailPos(){
+    return tail;
+  }
 };
