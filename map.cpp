@@ -22,7 +22,7 @@ public:
         else if(stage == 4) map = stage4;
     }
 
-    int getPosition(int x, int y) {return map[x][y] - '0';}
+    int getPosition(int x, int y) {return map[x][y] - '0';} 
 
     void makeFree(int x, int y) {changeMap(x, y, 0);}
 
