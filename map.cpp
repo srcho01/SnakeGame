@@ -7,7 +7,7 @@ Map::Map(int stage) {
     else if(stage == 4) map = stage4;
 }
 
-void Map::setMap(int stage=1) {
+void Map::setMap(int stage) {
     if(stage == 1) map = stage1;
     else if(stage == 2) map = stage2;
     else if(stage == 3) map = stage3;
