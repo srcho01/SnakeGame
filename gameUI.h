@@ -6,6 +6,6 @@ private:
 public: 
     GameUI();
     ~GameUI();
+    void initUI();
     void PrintGame();
 };
-
