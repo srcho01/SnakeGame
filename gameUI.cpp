@@ -3,10 +3,9 @@
 #include <clocale>
 #include <unistd.h>
 #include "gameUI.h"
-#include "snake.h"
 
 GameUI::GameUI() {
-    snake = new Snake;
+    // gameMap = new Map;
     initUI();
 }
 
@@ -28,10 +27,7 @@ void GameUI::initUI() { // 배경화면 생성
 
 GameUI::~GameUI() {
     // 창 종료
-    getch(); 
     endwin();
-    // 동적 할당 받은 gameMap 삭제
-    delete gameMap;
 }
 
 void GameUI::PrintGame() {
@@ -63,7 +59,7 @@ void GameUI::PrintGame() {
                     mvprintw(i+2, j+4, "#");
                     break;
                 case 8:
-                    mvprintw(i+2, j+4, "|");
+                    mvprintw(i+2, j+4, "-");
                     break;
             }
         }

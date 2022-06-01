@@ -2,12 +2,9 @@
 #define _GAMEUI_H_
 
 #include "map.h"
-#include "snake.h"
-static Map *gameMap;
+extern Map *gameMap;
 
 class GameUI {
-private:
-    Snake *snake;
 public: 
     GameUI();
     ~GameUI();
