@@ -6,6 +6,7 @@
 
 class Map {
     std::string* map;
+    int currentStage;
     void changeMap(int x, int y, int n) {map[x][y] = n + '0';}
     
 public:
@@ -13,6 +14,7 @@ public:
     ~Map();
     void setMap(int stage=1);
     int getPosition(int x, int y); 
+    int getCurrentStage() {return currentStage;}
     void makeFree(int x, int y);
     void makeHead(int x, int y);
     void makeBody(int x, int y);

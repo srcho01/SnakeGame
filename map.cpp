@@ -1,6 +1,6 @@
 #include "map.h"
 
-Map::Map(int stage) {
+Map::Map(int stage): currentStage(stage) {
     if(stage == 1) map = stage1;
     else if(stage == 2) map = stage2;
     else if(stage == 3) map = stage3;
