@@ -1,3 +1,6 @@
+#ifndef _SNAKE_H_
+#define _SNAKE_H_
+
 class Snake {
 private:
     int *head, *tail;
@@ -17,3 +20,4 @@ public:
     int* getBodyPos(int num);
     int* getTailPos();
 };
+#endif

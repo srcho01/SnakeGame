@@ -1,3 +1,6 @@
+#ifndef _MAP_H_
+#define _MAP_H_
+
 #include <string>
 #include "mapData.h"
 
@@ -7,6 +10,7 @@ class Map {
     
 public:
     Map(int stage=1);
+    ~Map();
     void setMap(int stage=1);
     int getPosition(int x, int y); 
     void makeFree(int x, int y);
@@ -16,3 +20,4 @@ public:
     void makePoison(int x, int y);
     void makeGate(int x1, int y1, int x2, int y2);
 };
+#endif
