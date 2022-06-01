@@ -171,3 +171,8 @@ int* Snake::getBodyPos(int num){
 int* Snake::getTailPos(){
     return tail;
 }
+
+int Snake::getBodyLen() {
+    //
+    return 0;
+}

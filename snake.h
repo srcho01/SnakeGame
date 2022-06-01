@@ -19,5 +19,6 @@ public:
     int* getHeadPos();
     int* getBodyPos(int num);
     int* getTailPos();
+    int getBodyLen();
 };
 #endif
