@@ -5,7 +5,6 @@
 #include "gameUI.h"
 
 GameUI::GameUI() {
-    // gameMap = new Map;
     initUI();
 }
 
