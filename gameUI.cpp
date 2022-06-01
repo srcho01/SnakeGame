@@ -1,10 +1,12 @@
 #include <ncurses.h>
 #include <string>
 #include <clocale>
+#include <unistd.h>
 #include "gameUI.h"
+#include "snake.h"
 
 GameUI::GameUI() {
-    gameMap = new Map;
+    snake = new Snake;
     initUI();
 }
 
@@ -21,6 +23,7 @@ void GameUI::initUI() { // 배경화면 생성
     attron(COLOR_PAIR(2));
     border(' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '); 
     attroff(COLOR_PAIR(2));
+    refresh();
 }
 
 GameUI::~GameUI() {
@@ -65,4 +68,10 @@ void GameUI::PrintGame() {
             }
         }
     }
+    refresh();
+}
+
+void GameUI::update(unsigned time) {
+    PrintGame();
+    usleep(time);
 }
