@@ -10,47 +10,47 @@ PlayGame::PlayGame(): win(false) {
 }
 
 bool PlayGame::playing() {
-    // item »ý¼º
+    // item ï¿½ï¿½ï¿½ï¿½
     item->makeGrowth(currStage, startTime); 
     item->makePoison(currStage, startTime);
 
-    // gate »ý¼º
+    // gate ï¿½ï¿½ï¿½ï¿½
     if(gate->currGate.size() == 4) {
         int g1 = gameMap->getPosition(gate->currGate[0], gate->currGate[1]);
         int g2 = gameMap->getPosition(gate->currGate[2], gate->currGate[3]);
-        if(g1 == 7 && g2 == 7) gate->makeGate(currStage, startTime); // ¹ìÀÌ Áö³ª°¡´Â ÁßÀÏ ¶§´Â gate À§Ä¡ º¯°æ X
+        if(g1 == 7 && g2 == 7) gate->makeGate(currStage, startTime); // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ gate ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½ X
     } else gate->makeGate(currStage, startTime);
 
-    countPoint(); // Á¡¼ö ¾÷µ¥ÀÌÆ®
+    countPoint(); // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®
 
-    playingStage(currStage); // ¹Ì¼Ç ¼º°ø ¿©ºÎ °»½Å
+    playingStage(currStage); // ï¿½Ì¼ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-    // °ÔÀÓ ½ÇÆÐ·Î Á¾·á
-    int headPos = gameMap->getPosition(snake->getHeadPos()[0], snake->getHeadPos()[1]); // ÇöÀç ¸Ó¸® À§Ä¡
-    if(headPos == 1 || headPos == 2 || headPos == 8) return false; // ½º³×ÀÌÅ©°¡ º®¿¡ ¹ÚÀ½
-    if(headPos == 4) return false; // ÀÚ±â ¸ö¿¡ ¹ÚÀ½ (ÁøÇà ¹æÇâ°ú ¹Ý´ë ¹æÇâÀ¸·Î °¡´Â °æ¿ì Æ÷ÇÔ)
-    if(snake->getBodyLen() < 3) return false; // ¸ö ±æÀÌ < 3
+    // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ð·ï¿½ ï¿½ï¿½ï¿½ï¿½
+    int headPos = gameMap->getPosition(snake->getHeadPos()[0], snake->getHeadPos()[1]); // ï¿½ï¿½ï¿½ï¿½ ï¿½Ó¸ï¿½ ï¿½ï¿½Ä¡
+    if(headPos == 1 || headPos == 2 || headPos == 8) return false; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å©ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+    if(headPos == 4) return false; // ï¿½Ú±ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ (ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ý´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)
+    if(snake->getBodyLen() < 1) return false; // ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ < 3
 
-    // ¹Ì¼Ç ¼º°ø
-    //// ¹Ì¼Ç ¼º°ø °³¼ö count
+    // ï¿½Ì¼ï¿½ ï¿½ï¿½ï¿½ï¿½
+    //// ï¿½Ì¼ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ count
     int n = 0; 
     for(bool b: success) if(b) n++;
     
-    if(n == 4 && currStage == 4) { // 4´Ü°è±îÁö ¸ðµÎ ¼º°ø
+    if(n == 4 && currStage == 4) { // 4ï¿½Ü°ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         win = true;
-        return false; // °ÔÀÓ Á¾·á
+        return false; // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     } else if(n == 4) {
-        gameMap->setMap(++currStage); // ´ÙÀ½ ´Ü°è·Î stage º¯°æ
+        gameMap->setMap(++currStage); // ï¿½ï¿½ï¿½ï¿½ ï¿½Ü°ï¿½ï¿½ stage ï¿½ï¿½ï¿½ï¿½
 
         delete snake;
-        snake = new Snake(); // ½º³×ÀÌÅ© °´Ã¼ Àç»ý¼ºÇÏ¿© ÃÊ±âÈ­
+        snake = new Snake(); // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å© ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½Ê±ï¿½È­
 
-        int bodyLen = 3, growthNum = 0, poisonNum = 0, gateNum = 0; // º¯¼ö ÀüºÎ ÃÊ±â°ªÀ¸·Î
-        for(auto &b: success) b = false; // ¹Ì¼Ç ¼º°ø ¿©ºÎ Ã¼Å© ¹è¿­ false·Î ÃÊ±âÈ­
-        startTime = time(NULL)-2; // ÇöÀç ½Ã°£ Àç¼³Á¤
+        int bodyLen = 3, growthNum = 0, poisonNum = 0, gateNum = 0; // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±â°ªï¿½ï¿½ï¿½ï¿½
+        for(auto &b: success) b = false; // ï¿½Ì¼ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã¼Å© ï¿½è¿­ falseï¿½ï¿½ ï¿½Ê±ï¿½È­
+        startTime = time(NULL)-2; // ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ ï¿½ç¼³ï¿½ï¿½
     }
     
-    return true; // °ÔÀÓ °è¼Ó
+    return true; // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 }
 
 void PlayGame::playingStage(int stage) {
@@ -65,5 +65,5 @@ void PlayGame::countPoint() {
     int firstBodyPos = gameMap->getPosition(snake->getBodyPos(0)[0], snake->getBodyPos(0)[1]);
     if(headPos == 5) growthNum++;
     else if(headPos == 6) poisonNum++;
-    else if(headPos == 7 && firstBodyPos == 7) gateNum++; // head°¡ gate Åë°ú ½Ã gate Á¡¼ö°¡ Áßº¹ Ä«¿îÆ®µÇÁö ¾Êµµ·Ï ÇÔ
+    else if(headPos == 7 && firstBodyPos == 7) gateNum++; // headï¿½ï¿½ gate ï¿½ï¿½ï¿½ ï¿½ï¿½ gate ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ßºï¿½ Ä«ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ ï¿½Êµï¿½ï¿½ï¿½ ï¿½ï¿½
 }

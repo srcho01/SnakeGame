@@ -10,6 +10,6 @@ int main() {
     GameUI gameUI;
     PlayGame playgame;
     while(playgame.playing()) {
-        gameUI.update(1000000); // ´ÜÀ§ : microseconds (1s = 1000000ms)
+        gameUI.update(1000000); // ï¿½ï¿½ï¿½ï¿½ : microseconds (1s = 1000000ms)
     }
 }
