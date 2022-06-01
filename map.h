@@ -1,9 +1,8 @@
 #include <string>
 #include "mapData.h"
-using namespace std;
 
 class Map {
-    string* map;
+    std::string* map;
     void changeMap(int x, int y, int n) {map[x][y] = n + '0';}
     
 public:
