@@ -1,14 +1,9 @@
 #include <iostream>
+#include "snake.h"
 using namespace std;
 
-class Snake
+Snake::Snake()
 {
-  int *head, *tail;
-  int **body;
-  int headDirection = 75; // left: 75, right: 77, up: 72, down: 80
-public:
-  Snake()
-  {
     head = new int[2];
     tail = new int[2];
     body = new int *[8];
@@ -22,10 +17,10 @@ public:
     tail[1] = 14; //tail's x
     body[0][0] = 2;
     body[0][1] = 13;
-  }
+}
 
-  void move_left()
-  {
+void Snake::move_left()
+{
     int tmp_head[2] = {head[0], head[1]};
     head[1] -= 1;
     int tmp_bodyy;
@@ -44,9 +39,10 @@ public:
     }
     tail[0] = tmp_head[0];
     tail[1] = tmp_head[1];
-  }
-  void move_right()
-  {
+}
+
+void Snake::move_right()
+{
     int tmp_head[2] = {head[0], head[1]};
     head[1] += 1;
     int tmp_bodyy;
@@ -65,9 +61,10 @@ public:
     }
     tail[0] = tmp_head[0];
     tail[1] = tmp_head[1];
-  }
-  void move_up()
-  {
+}
+
+void Snake::move_up()
+{
     int tmp_head[2] = {head[0], head[1]};
     head[0] -= 1;
     int tmp_bodyy;
@@ -86,9 +83,10 @@ public:
     }
     tail[0] = tmp_head[0];
     tail[1] = tmp_head[1];
-  }
-  void move_down()
-  {
+}
+
+void Snake::move_down()
+{
     int tmp_head[2] = {head[0], head[1]};
     head[0] += 1;
     int tmp_bodyy;
@@ -107,10 +105,10 @@ public:
     }
     tail[0] = tmp_head[0];
     tail[1] = tmp_head[1];
-  }
+}
 
-  void grow(int itemx, int itemy)
-  {
+void Snake::grow(int itemx, int itemy)
+{
     int tmp_body[8][2];
     for (int i = 0; i < 8; i++)
     {
@@ -130,9 +128,9 @@ public:
       body[i][0] = tmp_body[i][0];
       body[i][1] = tmp_body[i][1];
     }
-  }
+}
 
-  void posion(int itemx, int itemy){
+void Snake::posion(int itemx, int itemy){
     for(int i = 0; i < 8; i++){
       if(body[i] == NULL){
         tail[0] = body[i-1][0];
@@ -141,8 +139,9 @@ public:
         break;
       }
     }
-  }
-  void gate(int bodyDirection, int g2x, int g2y){
+}
+
+void Snake::gate(int bodyDirection, int g2x, int g2y){
     if(bodyDirection == 75){
       head[0] = g2y;
       head[1] = g2x - 1;
@@ -159,17 +158,16 @@ public:
       head[0] = g2y + 1;
       head[1] = g2x;
     }
-  }
+}
 
-  int* getHeadPos(){
+int* Snake::getHeadPos(){
     return head;
-  }
+}
 
-  int* getBodyPos(int num){
+int* Snake::getBodyPos(int num){
     return body[num];
-  }
+}
 
-  int* getTailPos(){
+int* Snake::getTailPos(){
     return tail;
-  }
-};
+}
