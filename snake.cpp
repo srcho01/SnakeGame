@@ -6,7 +6,7 @@ Snake::Snake()
 {
     head = new int[2];
     tail = new int[2];
-    body = new int *[8];
+    body = new int *[100]();
     for (int i = 0; i < 8; i++)
     {
       body[i] = new int[2];
@@ -49,7 +49,7 @@ void Snake::move_right()
     int tmp_bodyx;
     for (int i = 0; i < 8; i++)
     {
-      if (body[i] != NULL)
+      if (body[i] != 0)
       {
         tmp_bodyy = body[i][0];
         tmp_bodyx = body[i][1];
@@ -173,6 +173,10 @@ int* Snake::getTailPos(){
 }
 
 int Snake::getBodyLen() {
-    //
-    return 0;
+    int len = 0;
+    for(int i = 0; i < 100; i++){
+      if(body[i][0] != 0) len++;
+      else return len;
+    }
+    return len;
 }
