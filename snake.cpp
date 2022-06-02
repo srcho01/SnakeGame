@@ -49,7 +49,7 @@ void Snake::move_right()
     int tmp_bodyx;
     for (int i = 0; i < 8; i++)
     {
-      if (body[i] != NULL)
+      if (body[i] != 0)
       {
         tmp_bodyy = body[i][0];
         tmp_bodyx = body[i][1];

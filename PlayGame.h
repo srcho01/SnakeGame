@@ -11,7 +11,7 @@ extern Map *gameMap;
 
 class PlayGame {
 private:
-    int mission[4][5] =  // ¹Ì¼Ç ´Þ¼ºÀ» À§ÇÑ ¸ö ÃÖ¼Ò ±æÀÌ, È¹µæÇØ¾ß ÇÒ Growth Item ¼ö, È¹µæÇØ¾ß ÇÒ Poison Item ¼ö, Gate »ç¿ë È½¼ö
+    int mission[4][5] =  // ï¿½Ì¼ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö¼ï¿½ ï¿½ï¿½ï¿½ï¿½, È¹ï¿½ï¿½ï¿½Ø¾ï¿½ ï¿½ï¿½ Growth Item ï¿½ï¿½, È¹ï¿½ï¿½ï¿½Ø¾ï¿½ ï¿½ï¿½ Poison Item ï¿½ï¿½, Gate ï¿½ï¿½ï¿½ È½ï¿½ï¿½
     {
         {7, 2, 1, 1,}, // stage 1
         {10, 3, 2, 3}, // stage 2
@@ -23,12 +23,12 @@ private:
     time_t startTime;
     int currStage;
 
+
+public:
+    bool win;
     Snake *snake;
     Item *item;
     Gate *gate;
-public:
-    bool win;
-
     PlayGame();
     bool playing();
     void playingStage(int stage);
