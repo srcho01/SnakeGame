@@ -1,5 +1,6 @@
 #include "PlayGame.h"
 
+// Encoding : EUC-KR
 PlayGame::PlayGame(): win(false) {
     currStage = gameMap->getCurrentStage();
     startTime = time(NULL);
