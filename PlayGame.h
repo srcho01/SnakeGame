@@ -19,11 +19,11 @@ private:
         {16, 6, 4, 6} // stage 4
     };
     int bodyLen = 3, growthNum = 0, poisonNum = 0, gateNum = 0;
-    bool success[5] = {false, false, false, false, false};
     time_t startTime;
-    int currStage;
 
 public:
+    int currStage;
+    bool success[5] = {false, false, false, false, false};
     bool win;
     Snake *snake;
     Item *item;

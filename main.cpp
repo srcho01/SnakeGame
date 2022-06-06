@@ -32,13 +32,14 @@ int main() {
             //cout << " prev " << playgame.snake->getHeadPos()[0] <<" "<<playgame.snake->getHeadPos()[1] << endl;
             playgame.snake->move_right();
             handlePrev = 67;
-            mapUpdate(gameMap, playgame.snake)
+            mapUpdate(gameMap[playgame.currStage], playgame.snake[playgame.currStage]);
             //cout << " next " << playgame.snake->getHeadPos()[0]<<" "<<playgame.snake->getHeadPos()[1] << endl;
         }
         else if(handle == 68){
             //cout << " prev " << playgame.snake->getHeadPos()[0] <<" "<<playgame.snake->getHeadPos()[1] << endl;
             playgame.snake->move_left();
             handlePrev = 68;
+            mapUpdate(gameMap[playgame.currStage], playgame.snake[playgame.currStage]);
             //cout << " next " << playgame.snake->getHeadPos()[0]<<" "<<playgame.snake->getHeadPos()[1] << endl;
 
         }
@@ -46,34 +47,40 @@ int main() {
             //cout << " prev " << playgame.snake->getHeadPos()[0] <<" "<<playgame.snake->getHeadPos()[1] << endl;
             playgame.snake->move_up();
             handlePrev = 65;
+            mapUpdate(gameMap[playgame.currStage], playgame.snake[playgame.currStage]);
             //cout << " next " << playgame.snake->getHeadPos()[0]<<" "<<playgame.snake->getHeadPos()[1] << endl;
         }
         else if(handle == 66){
             //cout << " prev " << playgame.snake->getHeadPos()[0] <<" "<<playgame.snake->getHeadPos()[1] << endl;
             playgame.snake->move_down();
             handlePrev = 66;
+            mapUpdate(gameMap[playgame.currStage], playgame.snake[playgame.currStage]);
             //cout << " next " << playgame.snake->getHeadPos()[0]<<" "<<playgame.snake->getHeadPos()[1] << endl;
         }
         else{
             if(handlePrev == 67){
                 //cout << " prev " << playgame.snake->getHeadPos()[0] <<" "<<playgame.snake->getHeadPos()[1] << endl;
                 playgame.snake->move_right();
+                mapUpdate(gameMap[playgame.currStage], playgame.snake[playgame.currStage]);
                 //cout << " next " << playgame.snake->getHeadPos()[0]<<" "<<playgame.snake->getHeadPos()[1] << endl;
             }
             else if(handlePrev == 68){
                 //cout << " prev " << playgame.snake->getHeadPos()[0] <<" "<<playgame.snake->getHeadPos()[1] << endl;
                 playgame.snake->move_left();
+                mapUpdate(gameMap[playgame.currStage], playgame.snake[playgame.currStage]);
                 //cout << " next " << playgame.snake->getHeadPos()[0]<<" "<<playgame.snake->getHeadPos()[1] << endl;
 
             }
             else if(handlePrev == 65){
                 //cout << " prev " << playgame.snake->getHeadPos()[0] <<" "<<playgame.snake->getHeadPos()[1] << endl;
                 playgame.snake->move_up();
+                mapUpdate(gameMap[playgame.currStage], playgame.snake[playgame.currStage]);
                 //cout << " next " << playgame.snake->getHeadPos()[0]<<" "<<playgame.snake->getHeadPos()[1] << endl;
             }
             else if(handlePrev == 66){
                 //cout << " prev " << playgame.snake->getHeadPos()[0] <<" "<<playgame.snake->getHeadPos()[1] << endl;
                 playgame.snake->move_down();
+                mapUpdate(gameMap[playgame.currStage], playgame.snake[playgame.currStage]);
                 //cout << " next " << playgame.snake->getHeadPos()[0]<<" "<<playgame.snake->getHeadPos()[1] << endl;
             }
         }
