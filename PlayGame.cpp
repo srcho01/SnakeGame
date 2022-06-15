@@ -1,5 +1,4 @@
 #include "PlayGame.h"
-#include <iostream>
 PlayGame::PlayGame(): win(false) {
     currStage = gameMap->getCurrentStage();
     snake = new Snake;
