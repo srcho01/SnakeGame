@@ -20,12 +20,12 @@ private:
     };
     int bodyLen = 3, growthNum = 0, poisonNum = 0;
     double gateNum = 0;
+    bool win;
     time_t startTime;
 
 public:
     int currStage;
     bool success[5] = {false, false, false, false, false};
-    bool win;
     Snake *snake;
     Item *item;
     Gate *gate;
@@ -34,6 +34,7 @@ public:
     bool playing();
     void playingStage(int stage);
     void countPoint();
+    bool isWin();
     int getMission(int x, int y) {return mission[x][y];}
     int getBodyNum() {return bodyLen;}
     int getGrowthNum() {return growthNum;}
