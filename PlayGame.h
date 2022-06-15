@@ -8,7 +8,6 @@
 #include "Gate.h"
 
 extern Map *gameMap;
-
 class PlayGame {
 private:
     int mission[4][5] =  // 미션 달성을 위한 몸 최소 길이, 획득해야 할 Growth Item 수, 획득해야 할 Poison Item 수, Gate 사용 횟수
