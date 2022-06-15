@@ -11,6 +11,7 @@ GameUI::GameUI() {
 void GameUI::initUI() { // 배경화면 생성
     setlocale(LC_ALL, "");
     initscr();
+    noecho();
     start_color();    
     init_pair(1, COLOR_BLACK,  COLOR_CYAN); 
     init_pair(2, COLOR_RED,   COLOR_GREEN);
