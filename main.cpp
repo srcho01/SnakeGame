@@ -4,7 +4,6 @@ Map *gameMap = new Map;
 #include "gameUI.h"
 #include "kbhit.h"
 #include "PlayGame.h"
-#include <iostream>
 #include <ncurses.h>
 using namespace std;
 
@@ -14,11 +13,12 @@ int main() {
     int handle;
     int handlePrev = 'D';
     while(gameUI.playgame->playing()) {
-        gameUI.update(150000); // ���� : microseconds (1s = 1000000ms)
+        gameUI.update(100000); // ���� : microseconds (1s = 1000000ms)
+        gameUI.updateScore(10000);
+        gameUI.updateMission(10000);
 
         if(kbhit()){
             handle = getch();
-            //cout << handle << endl;
         }
         else{
             if(gameUI.playgame->snake->headDirection == 1) handlePrev = 'D';
