@@ -52,7 +52,7 @@ int main() {
             handlePrev = 'B';
             playgame.snake->headDirection = 4;
             //cout << " next " << playgame.snake->getHeadPos()[0]<<" "<<playgame.snake->getHeadPos()[1] << endl;
-        } 
+        }
 
 
         // else{

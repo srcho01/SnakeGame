@@ -13,11 +13,10 @@ void GameUI::initUI() { // 배경화면 생성
     initscr();
     noecho();
     start_color();    
-    init_pair(1, COLOR_BLACK,  COLOR_CYAN); 
+    init_pair(1, COLOR_BLACK,  COLOR_WHITE); 
     init_pair(2, COLOR_RED,   COLOR_GREEN);
     bkgd(COLOR_PAIR(1));  
     attron(COLOR_PAIR(1));
-    mvprintw( 1, 11, "<Snake Game>");
     attroff(COLOR_PAIR(1));
     attron(COLOR_PAIR(2));
     border(' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '); 
@@ -56,6 +55,7 @@ void GameUI::PrintMission() {
 
 // main 화면
 void GameUI::PrintGame() {
+    mvprintw( 0, 40, "< SNAKE GAME >");
     for (int i=0; i<25; i++) {
         for (int j=0; j<50; j++) {
             switch (gameMap->getPosition(i, j)) {
@@ -87,6 +87,24 @@ void GameUI::PrintGame() {
         }
     }
     refresh();
+}
+
+void GameUI::PrintGameClear() {
+    mvprintw( 8, 1, "  _____   _                       _");
+    mvprintw( 9, 1 ," /  __ | | |                     | |");
+    mvprintw( 10, 2, "| | |_| | |   ___   __ _  _ __  | |");
+    mvprintw( 11, 2, "| |  _  | | /  _ | / _` || '__| | |");
+    mvprintw( 12, 2, "| |_| | | | | ___/| (_| || |    |_|");
+    mvprintw( 13, 2, "|_____/ |_| |____| |__,_||_|    (_)");
+}
+
+void GameUI::PrintGameOver() {
+    mvprintw( 15, 2, "______         _   _   _");
+    mvprintw( 16, 2 ,"|  ___|       (_) | | | |");
+    mvprintw( 17, 2, "| |_    __ _   _  | | | |");
+    mvprintw( 18, 2, "|  _|  / _` | | | | | | |");
+    mvprintw( 19, 2, "| |   | (_| | | | | | |_|");
+    mvprintw( 20, 2, "|_|   |___,_| |_| |_| (_))"); 
 }
 
 void GameUI::update(unsigned time) {
