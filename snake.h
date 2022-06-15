@@ -1,5 +1,8 @@
 #ifndef _SNAKE_H_
 #define _SNAKE_H_
+#include "map.h"
+
+extern Map *gameMap;
 
 class Snake {
 private:
@@ -9,6 +12,7 @@ private:
 
 public:
     Snake();
+    void mapUpdate();
     void move_left();
     void move_right();
     void move_up();
