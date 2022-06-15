@@ -12,9 +12,8 @@ private:
     deque<pair<int, int>> body;
 
 public:
-    int headDirection = 1; // left: 1, right: 2, up: 3, down: 4
+    int headDirection;// left: 1, right: 2, up: 3, down: 4
     int prevHead;
-    bool gateProtect;
     
     Snake();
     void mapUpdate(int x, int y);
