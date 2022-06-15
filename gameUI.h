@@ -9,6 +9,8 @@ public:
     GameUI();
     ~GameUI();
     void initUI();
+    void PrintScore();
+    void PrintMission();
     void PrintGame();
     void update(unsigned time);
 };
