@@ -2,10 +2,13 @@
 #define _GAMEUI_H_
 
 #include "map.h"
+#include "PlayGame.h"
 extern Map *gameMap;
 
 class GameUI {
 public: 
+    PlayGame *playgame;
+
     GameUI();
     ~GameUI();
     void initUI();

@@ -18,7 +18,8 @@ private:
         {4, 3, 0, 0}, // stage 3
         {16, 6, 4, 6} // stage 4
     };
-    int bodyLen = 3, growthNum = 0, poisonNum = 0, gateNum = 0;
+    int bodyLen = 3, growthNum = 0, poisonNum = 0;
+    double gateNum = 0;
     time_t startTime;
 
 public:
