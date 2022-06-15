@@ -14,7 +14,7 @@ int main() {
     int handle;
     int handlePrev = 'D';
     while(gameUI.playgame->playing()) {
-        gameUI.update(100000); // ���� : microseconds (1s = 1000000ms)
+        gameUI.update(150000); // ���� : microseconds (1s = 1000000ms)
 
         if(kbhit()){
             handle = getch();

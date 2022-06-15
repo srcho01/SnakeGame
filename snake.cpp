@@ -15,7 +15,7 @@ Snake::Snake()
     gameMap->changeMap(head[0], head[1], 3);
     gameMap->changeMap(body[0].first, body[0].second, 4);
     gameMap->changeMap(tail[0], tail[1], 4);
-    headDirection = 1;
+    headDirection = 1;  
 }
 
 void Snake::mapUpdate(int x, int y) {
