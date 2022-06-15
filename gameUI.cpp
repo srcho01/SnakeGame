@@ -5,6 +5,7 @@
 #include "gameUI.h"
 
 GameUI::GameUI() {
+    playgame = new PlayGame;
     initUI();
 }
 

@@ -18,7 +18,7 @@ bool PlayGame::playing() {
     if(gate->currGate.size() == 4) {
         int g1 = gameMap->getPosition(gate->currGate[0], gate->currGate[1]);
         int g2 = gameMap->getPosition(gate->currGate[2], gate->currGate[3]);
-        if(g1 == 7 && g2 == 7) gate->makeGate(currStage, startTime); // 뱀이 지나가는 중일 때는 gate 위치 변경 X
+        if(g1 == 3 || g2 == 3) gate->makeGate(currStage, startTime); // 뱀이 지나가는 중일 때는 gate 위치 변경 X
     } else gate->makeGate(currStage, startTime);
 
     countPoint(); // 점수 업데이트
@@ -45,7 +45,7 @@ bool PlayGame::playing() {
         delete snake;
         snake = new Snake(); // 스네이크 객체 재생성하여 초기화
 
-        int bodyLen = 3, growthNum = 0, poisonNum = 0, gateNum = 0; // 변수 전부 초기값으로
+        bodyLen = 3, growthNum = 0, poisonNum = 0, gateNum = 0; // 변수 전부 초기값으로
         for(auto &b: success) b = false; // 미션 성공 여부 체크 배열 false로 초기화
         startTime = time(NULL)-2; // 현재 시간 재설정
     }
@@ -72,12 +72,11 @@ void PlayGame::countPoint() {
         snake->posion();
     }
     else if(headPos == 7){ 
-        gateNum++;
+        gateNum += 0.5;
         if(gate->currGate[0] == snake->getHeadPos()[0]){
             snake->gate(gate->currGate[3], gate->currGate[2]);
         }else if (gate->currGate[2] == snake->getHeadPos()[0]){
             snake->gate( gate->currGate[1], gate->currGate[0]);
         }
     }
-     // head가 gate 통과 시 gate 점수가 중복 카운트되지 않도록 함
 } 
