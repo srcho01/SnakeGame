@@ -13,9 +13,9 @@ class PlayGame {
 private:
     int mission[4][5] =  // 미션 달성을 위한 몸 최소 길이, 획득해야 할 Growth Item 수, 획득해야 할 Poison Item 수, Gate 사용 횟수
     {
-        {7, 2, 1, 1,}, // stage 1
-        {10, 3, 2, 3}, // stage 2
-        {13, 5, 3, 4}, // stage 3
+        {3, 1, 0, 0}, // stage 1
+        {3, 2, 0, 0}, // stage 2
+        {4, 3, 0, 0}, // stage 3
         {16, 6, 4, 6} // stage 4
     };
     int bodyLen = 3, growthNum = 0, poisonNum = 0;
