@@ -10,10 +10,10 @@ Snake::Snake()
     head[1] = 25; //head's x
     tail[0] = 2;  //tail's y
     tail[1] = 27; //tail's x
-    body[0][0] = 2;
-    body[0][1] = 26;
+    pair<int,int> tmp = make_pair(2, 26);
+    body.push_back(tmp);
     gameMap->changeMap(head[0], head[1], 3);
-    gameMap->changeMap(body[0][0], body[0][1], 4);
+    gameMap->changeMap(body[0].first, body[0].second, 4);
     gameMap->changeMap(tail[0], tail[1], 4);
 }
 
