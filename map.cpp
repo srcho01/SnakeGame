@@ -18,7 +18,7 @@ void Map::setMap(int stage) {
 
 int Map::setWall(int stage) {
     for(int i=0; i<25; i++)
-        for(int j=0; j<25; j++)
+        for(int j=0; j<50; j++)
             if(getPosition(i,j) == 1 || getPosition(i,j) == 8) {
                 wall.push_back(i);
                 wall.push_back(j);

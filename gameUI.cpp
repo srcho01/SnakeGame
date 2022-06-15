@@ -31,7 +31,7 @@ GameUI::~GameUI() {
 
 void GameUI::PrintGame() {
     for (int i=0; i<25; i++) {
-        for (int j=0; j<25; j++) {
+        for (int j=0; j<50; j++) {
             switch (gameMap->getPosition(i, j)) {
                 case 0:
                     mvprintw(i+2, j+4, " ");
