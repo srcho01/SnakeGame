@@ -117,3 +117,13 @@ void GameUI::update(unsigned time) {
     PrintGame();
     usleep(time);
 }
+
+void GameUI::updateScore(unsigned time) {
+    PrintScore();
+    usleep(time);
+}
+
+void GameUI::updateMission(unsigned time) {
+    PrintMission();
+    usleep(time);
+}
