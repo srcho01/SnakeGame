@@ -15,6 +15,8 @@ public:
     void PrintScore();
     void PrintMission();
     void PrintGame();
+    void PrintGameClear();
+    void PrintGameOver();
     void update(unsigned time);
 };
 #endif
