@@ -1,4 +1,5 @@
 #include "PlayGame.h"
+
 PlayGame::PlayGame(): win(false) {
     currStage = gameMap->getCurrentStage();
     snake = new Snake;
@@ -16,7 +17,7 @@ bool PlayGame::playing() {
     if(gate->currGate.size() == 4) {
         int g1 = gameMap->getPosition(gate->currGate[0], gate->currGate[1]);
         int g2 = gameMap->getPosition(gate->currGate[2], gate->currGate[3]);
-        if(g1 == 3 || g2 == 3) gate->makeGate(currStage, startTime); // 뱀이 지나가는 중일 때는 gate 위치 변경 X
+        if(g1 != 3 && g2 != 3) gate->makeGate(currStage, startTime); // 뱀이 지나가는 중일 때는 gate 위치 변경 X
     } else gate->makeGate(currStage, startTime);
 
     countPoint(); // 점수 업데이트
@@ -74,7 +75,7 @@ void PlayGame::countPoint() {
         snake->posion();
     }
     else if(headPos == 7){ 
-        gateNum += 0.5; // 게이트 한 쌍(2칸)을 통과하면 1점이 올라가도록
+        gateNum++;
         if(gate->currGate[0] == snake->getHeadPos()[0]){
             snake->gate(gate->currGate[3], gate->currGate[2], gate->currGate[1],gate->currGate[0]);
         }else if (gate->currGate[2] == snake->getHeadPos()[0]){
