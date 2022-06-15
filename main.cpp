@@ -13,7 +13,7 @@ int main() {
     int handle;
     int handlePrev = 'D';
     while(playgame.playing()) {
-        gameUI.update(500000); // ���� : microseconds (1s = 1000000ms)
+        gameUI.update(100000); // ���� : microseconds (1s = 1000000ms)
 
         if(kbhit()){
             handle = getch();
@@ -28,12 +28,14 @@ int main() {
             //cout << " prev " << playgame.snake->getHeadPos()[0] <<" "<<playgame.snake->getHeadPos()[1] << endl;
             playgame.snake->move_right();
             handlePrev = 'C';
+            playgame.snake->headDirection = 2;
             //cout << " next " << playgame.snake->getHeadPos()[0]<<" "<<playgame.snake->getHeadPos()[1] << endl;
         }
         else if(handle == 'D'){
             //cout << " prev " << playgame.snake->getHeadPos()[0] <<" "<<playgame.snake->getHeadPos()[1] << endl;
             playgame.snake->move_left();
             handlePrev = 'D';
+            playgame.snake->headDirection = 1;
             //cout << " next " << playgame.snake->getHeadPos()[0]<<" "<<playgame.snake->getHeadPos()[1] << endl;
 
         }
@@ -41,12 +43,14 @@ int main() {
             //cout << " prev " << playgame.snake->getHeadPos()[0] <<" "<<playgame.snake->getHeadPos()[1] << endl;
             playgame.snake->move_up();
             handlePrev = 'A';
+            playgame.snake->headDirection = 3;
             //cout << " next " << playgame.snake->getHeadPos()[0]<<" "<<playgame.snake->getHeadPos()[1] << endl;
         }
         else if(handle == 'B'){
             //cout << " prev " << playgame.snake->getHeadPos()[0] <<" "<<playgame.snake->getHeadPos()[1] << endl;
             playgame.snake->move_down();
             handlePrev = 'B';
+            playgame.snake->headDirection = 4;
             //cout << " next " << playgame.snake->getHeadPos()[0]<<" "<<playgame.snake->getHeadPos()[1] << endl;
         } 
 

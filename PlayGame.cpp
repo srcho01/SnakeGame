@@ -63,7 +63,10 @@ void PlayGame::playingStage(int stage) {
 void PlayGame::countPoint() {
     int headPos = gameMap->getPosition(snake->getHeadPos()[0], snake->getHeadPos()[1]);
     int firstBodyPos = gameMap->getPosition(snake->getBodyPos(0).first, snake->getBodyPos(0).second);
-    if(headPos == 5) growthNum++;
+    if(headPos == 5) {
+        growthNum++;
+        snake->grow();
+    }
     else if(headPos == 6) poisonNum++;
     else if(headPos == 7 && firstBodyPos == 7) gateNum++; // head가 gate 통과 시 gate 점수가 중복 카운트되지 않도록 함
 } 

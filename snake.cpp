@@ -21,8 +21,17 @@ void Snake::mapUpdate(int x, int y) {
     int hx = this->getHeadPos()[1];
     int hy = this->getHeadPos()[0];
     gameMap->changeMap(hy, hx, 3);
-    gameMap->changeMap(this->getBodyPos(0).first, this->getBodyPos(0).second, 4);
-    gameMap->changeMap(y, x, 0);
+
+    for(int i =0; i < body.size(); i++){
+      int mx = this->getBodyPos(i).second;
+      int my = this->getBodyPos(i).first;
+      gameMap->changeMap(my,mx,4);
+    }
+
+    int tx = this->getTailPos()[1];
+    int ty = this->getTailPos()[0];
+    gameMap->changeMap(ty,tx,4);
+    gameMap->changeMap(y,x,0);
 
 }
 
@@ -93,12 +102,28 @@ void Snake::move_down()
 
 }
 
-void Snake::grow(int itemx, int itemy)
-{
-  pair<int,int> tmp = make_pair(head[0], head[1]);
-  head[0] = itemy;
-  head[1] = itemx;
-  body.push_front(tmp);
+void Snake::grow()
+{ 
+  if(headDirection = 1){
+    pair<int,int> tmp = make_pair(head[0], head[1]);
+    head[1] -= 1;
+    body.push_front(tmp);
+  }
+  else if(headDirection = 2){
+    pair<int,int> tmp = make_pair(head[0], head[1]);
+    head[1] += 1;
+    body.push_front(tmp);
+  }
+   else if(headDirection = 3){
+    pair<int,int> tmp = make_pair(head[0], head[1]);
+    head[0] -= 1;
+    body.push_front(tmp);
+  }
+  else if(headDirection = 4){
+    pair<int,int> tmp = make_pair(head[0], head[1]);
+    head[0] += 1;
+    body.push_front(tmp);
+  }
 }
 
 void Snake::posion(int itemx, int itemy){
