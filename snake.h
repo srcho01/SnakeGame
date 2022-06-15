@@ -10,13 +10,13 @@ class Snake {
 private:
     int *head, *tail;
     deque<pair<int, int>> body;
-    int headDirection = 75; // left: 75, right: 77, up: 72, down: 80
 
 public:
+    int headDirection = 75; // left: 75, right: 77, up: 72, down: 80
     int prevHead;
     
     Snake();
-    void mapUpdate();
+    void mapUpdate(int x, int y);
     void move_left();
     void move_right();
     void move_up();

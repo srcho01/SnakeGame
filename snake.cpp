@@ -17,64 +17,71 @@ Snake::Snake()
     gameMap->changeMap(tail[0], tail[1], 4);
 }
 
-void Snake::mapUpdate() {
+void Snake::mapUpdate(int x, int y) {
     int hx = this->getHeadPos()[1];
     int hy = this->getHeadPos()[0];
     gameMap->changeMap(hy, hx, 3);
-    for(int i = 0; i < this->getBodyLen() - 2; i++){
-        int mx = this->getBodyPos(i).second;
-        int my = this->getBodyPos(i).first;
-        gameMap->changeMap(my, mx, 4);
-    }
-    int tx = this->getTailPos()[1];
-    int ty = this->getTailPos()[0];
-    gameMap->changeMap(ty, tx, 4);
+    gameMap->changeMap(this->getBodyPos(0).first, this->getBodyPos(0).second, 4);
+    gameMap->changeMap(y, x, 0);
 
 }
 
+
 void Snake::move_left()
 {
+  int x,y;
+  x = tail[1];
+  y = tail[0];
   pair<int,int> tmp = make_pair(head[0], head[1]);
   head[1] -= 1;
   prevHead = gameMap -> getPosition(head[0], head[1]);
   body.push_front(tmp);
   tail[0] = body.back().first;
   tail[1] = body.back().second;
-  this->mapUpdate();
+  this->mapUpdate(x,y);
   }
 
 void Snake::move_right()
 {
+  int x,y;
+  x = tail[1];
+  y = tail[0];
   pair<int,int> tmp = make_pair(head[0], head[1]);
   head[1] += 1;
   prevHead = gameMap -> getPosition(head[0], head[1]);
   body.push_front(tmp);
   tail[0] = body.back().first;
   tail[1] = body.back().second;
-  this->mapUpdate();
+  this->mapUpdate(x,y);
 }
 
 void Snake::move_up()
 {
+    int x,y;
+  x = tail[1];
+  y = tail[0];
   pair<int,int> tmp = make_pair(head[0], head[1]);
   head[0] -= 1;
   prevHead = gameMap -> getPosition(head[0], head[1]);
   body.push_front(tmp);
   tail[0] = body.back().first;
   tail[1] = body.back().second;
-  this->mapUpdate();
+  this->mapUpdate(x,y);
 
 }
 
 void Snake::move_down()
 {
+    int x,y;
+  x = tail[1];
+  y = tail[0];
   pair<int,int> tmp = make_pair(head[0], head[1]);
   head[0] += 1;
   prevHead = gameMap -> getPosition(head[0], head[1]);
   body.push_front(tmp);
   tail[0] = body.back().first;
   tail[1] = body.back().second;
-  this->mapUpdate();
+  this->mapUpdate(x,y);
 
 }
 

@@ -10,12 +10,10 @@ using namespace std;
 int main() {
     GameUI gameUI;
     PlayGame playgame; 
-
-
+    int handle;
+    int handlePrev = 'D';
     while(playgame.playing()) {
         gameUI.update(1000000); // ���� : microseconds (1s = 1000000ms)
-        int handle;
-        int handlePrev = KEY_LEFT;
 
         if(kbhit()){
             handle = getch();
@@ -23,33 +21,36 @@ int main() {
         }
         else{
             handle = handlePrev;
+            cout << handle << endl;
         }
         //cout << handle << endl;
-        if(handle == KEY_RIGHT){
+        if(handle == 'C'){
             //cout << " prev " << playgame.snake->getHeadPos()[0] <<" "<<playgame.snake->getHeadPos()[1] << endl;
             playgame.snake->move_right();
-            handlePrev = KEY_RIGHT;
+            handlePrev = 'C';
             //cout << " next " << playgame.snake->getHeadPos()[0]<<" "<<playgame.snake->getHeadPos()[1] << endl;
         }
-        else if(handle == KEY_LEFT){
+        else if(handle == 'D'){
             //cout << " prev " << playgame.snake->getHeadPos()[0] <<" "<<playgame.snake->getHeadPos()[1] << endl;
             playgame.snake->move_left();
-            handlePrev = KEY_LEFT;
+            handlePrev = 'D';
             //cout << " next " << playgame.snake->getHeadPos()[0]<<" "<<playgame.snake->getHeadPos()[1] << endl;
 
         }
-        else if(handle == KEY_UP){
+        else if(handle == 'A'){
             //cout << " prev " << playgame.snake->getHeadPos()[0] <<" "<<playgame.snake->getHeadPos()[1] << endl;
             playgame.snake->move_up();
-            handlePrev = KEY_UP;
+            handlePrev = 'A';
             //cout << " next " << playgame.snake->getHeadPos()[0]<<" "<<playgame.snake->getHeadPos()[1] << endl;
         }
-        else if(handle == KEY_DOWN){
+        else if(handle == 'B'){
             //cout << " prev " << playgame.snake->getHeadPos()[0] <<" "<<playgame.snake->getHeadPos()[1] << endl;
             playgame.snake->move_down();
-            handlePrev = KEY_DOWN;
+            handlePrev = 'B';
             //cout << " next " << playgame.snake->getHeadPos()[0]<<" "<<playgame.snake->getHeadPos()[1] << endl;
         } 
+
+
         // else{
         //     if(handlePrev == 67){
         //         //cout << " prev " << playgame.snake->getHeadPos()[0] <<" "<<playgame.snake->getHeadPos()[1] << endl;

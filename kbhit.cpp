@@ -1,22 +1,18 @@
 #include "kbhit.h"
-static int peek_character = -1;
-static struct termios new_settings;
-int kbhit()
-{
-    char ch;
-    int nread;
+bool kbhit(void){
+    int ch;
+    bool ret;
 
-    if(peek_character != -1)
-        return 1;
-    new_settings.c_cc[VMIN]=0;
-    tcsetattr(0, TCSANOW, &new_settings);
-    nread = read(0,&ch,1);
-    new_settings.c_cc[VMIN]=1;
-    tcsetattr(0, TCSANOW, &new_settings);
+    nodelay(stdscr, TRUE);
 
-    if(nread == 1) {
-        peek_character = ch;
-        return 1;
+    ch = getch();
+    if ( ch == ERR ) {
+        ret = false;
+    } else {
+        ret = true;
+        ungetch(ch); // 마지막에 받은 문자를 버퍼에 다시 넣어서 다음 getch()가 받을 수 있도록 합니다.
     }
-    return 0;
+
+    nodelay(stdscr, FALSE);
+    return ret;
 }
