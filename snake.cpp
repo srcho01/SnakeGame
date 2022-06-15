@@ -38,6 +38,8 @@ void Snake::move_left()
   body.push_front(tmp);
   tail[0] = body.back().first;
   tail[1] = body.back().second;
+  body.pop_back();
+
   this->mapUpdate(x,y);
   }
 
@@ -52,6 +54,8 @@ void Snake::move_right()
   body.push_front(tmp);
   tail[0] = body.back().first;
   tail[1] = body.back().second;
+    body.pop_back();
+
   this->mapUpdate(x,y);
 }
 
@@ -66,6 +70,8 @@ void Snake::move_up()
   body.push_front(tmp);
   tail[0] = body.back().first;
   tail[1] = body.back().second;
+    body.pop_back();
+
   this->mapUpdate(x,y);
 
 }
@@ -81,6 +87,8 @@ void Snake::move_down()
   body.push_front(tmp);
   tail[0] = body.back().first;
   tail[1] = body.back().second;
+    body.pop_back();
+
   this->mapUpdate(x,y);
 
 }

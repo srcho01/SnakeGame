@@ -13,15 +13,15 @@ int main() {
     int handle;
     int handlePrev = 'D';
     while(playgame.playing()) {
-        gameUI.update(1000000); // ���� : microseconds (1s = 1000000ms)
+        gameUI.update(500000); // ���� : microseconds (1s = 1000000ms)
 
         if(kbhit()){
             handle = getch();
-            cout << handle << endl;
+            //cout << handle << endl;
         }
         else{
             handle = handlePrev;
-            cout << handle << endl;
+            //cout << handle << endl;
         }
         //cout << handle << endl;
         if(handle == 'C'){
