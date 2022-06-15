@@ -3,7 +3,7 @@
 #include <ctime>
 
 void Item::makeGrowth(int stage, const time_t &startTime) {
-    if((time(NULL) - startTime) % 7 == 0 && growth.size() != 0) {
+    if((time(NULL) - startTime) % 15 == 0 && growth.size() != 0) {
         for(int i=0; i<growth.size(); i+=2)
             gameMap->changeMap(growth[i], growth[i+1], 0);
         growth.clear();
@@ -21,7 +21,7 @@ void Item::makeGrowth(int stage, const time_t &startTime) {
 }
 
 void Item::makePoison(int stage, const time_t &startTime) {
-    if((time(NULL) - startTime) % 7 == 0 && poison.size() != 0) {
+    if((time(NULL) - startTime) % 15 == 1 && poison.size() != 0) {
         for(int i=0; i<poison.size(); i+=2)
             gameMap->changeMap(poison[i], poison[i+1], 0);
         poison.clear();
