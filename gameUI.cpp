@@ -21,6 +21,8 @@ void GameUI::initUI() { // 배경화면 생성
     attron(COLOR_PAIR(2));
     border(' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '); 
     attroff(COLOR_PAIR(2));
+    PrintScore();
+    PrintMission();
     refresh();
 }
 
@@ -28,7 +30,27 @@ GameUI::~GameUI() {
     // 창 종료
     endwin();
 }
+// score 화면
+void GameUI::PrintScore() {
+    mvprintw(2, 80, "< Score >");
+    mvprintw(3, 75, "--------------------");
+    mvprintw(5, 70, "B : ");
+    mvprintw(6, 70, "+ : ");
+    mvprintw(7, 70, "- : ");
+    mvprintw(8, 70, "G : ");
+    
+}
+// mission 화면
+void GameUI::PrintMission() {
+    mvprintw(15, 80, "< Mission >");
+    mvprintw(16, 75, "--------------------");
+    mvprintw(18, 70, "B : ");
+    mvprintw(19, 70, "+ : ");
+    mvprintw(20, 70, "- : ");
+    mvprintw(21, 70, "G : ");
+}
 
+// main 화면
 void GameUI::PrintGame() {
     for (int i=0; i<25; i++) {
         for (int j=0; j<50; j++) {

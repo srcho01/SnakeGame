@@ -20,6 +20,10 @@ int main() {
             //cout << handle << endl;
         }
         else{
+            if(playgame.snake->headDirection == 1) handlePrev = 'D';
+            else if(playgame.snake->headDirection == 2) handlePrev = 'C';
+            else if(playgame.snake->headDirection == 3) handlePrev = 'A';
+            else if(playgame.snake->headDirection == 4) handlePrev = 'B';
             handle = handlePrev;
             //cout << handle << endl;
         }
@@ -66,8 +70,6 @@ int main() {
             handlePrev = 'B';   
             //cout << " next " << playgame.snake->getHeadPos()[0]<<" "<<playgame.snake->getHeadPos()[1] << endl;
         }
-
-
 
         // else{
         //     if(handlePrev == 67){

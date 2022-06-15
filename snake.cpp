@@ -136,26 +136,22 @@ void Snake::posion(){
 }
 
 void Snake::gate(int g2x, int g2y){ //49, 24
+    head[0] = g2y;
+    head[1] = g2x ;
     if(g2x == 49){
-      head[0] = g2y;
-      head[1] = g2x - 1;
       headDirection = 1;
     }
-    else if(g2x == 0 ){
-       head[0] = g2y;
-      head[1] = g2x + 1;
+    else if(g2x == 0 ){;
       headDirection = 2;
+
     }
     else if(g2y == 24){
-      head[0] = g2y - 1;
-      head[1] = g2x;
       headDirection = 3;
     }
-    else{
-      head[0] = g2y + 1;
-      head[1] = g2x;
+    else if(g2y == 0){
       headDirection = 4;
     }
+
 }
 
 int* Snake::getHeadPos(){
