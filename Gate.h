@@ -9,6 +9,7 @@ class Gate {
 public:
     std::vector<int> currGate; // 게이트 위치
 
+    Gate();
     void makeGate(int stage, const time_t &startTime);
 };
 
