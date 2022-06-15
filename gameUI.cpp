@@ -11,6 +11,7 @@ GameUI::GameUI() {
 void GameUI::initUI() { // 배경화면 생성
     setlocale(LC_ALL, "");
     initscr();
+    noecho();
     start_color();    
     init_pair(1, COLOR_BLACK,  COLOR_CYAN); 
     init_pair(2, COLOR_RED,   COLOR_GREEN);
@@ -21,6 +22,9 @@ void GameUI::initUI() { // 배경화면 생성
     attron(COLOR_PAIR(2));
     border(' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '); 
     attroff(COLOR_PAIR(2));
+    mvprintw(10, 20, "If you want to start a game,");
+    mvprintw(13 , 25,  "Press any key");
+    getch();
     PrintScore();
     PrintMission();
     refresh();
