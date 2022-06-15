@@ -25,9 +25,7 @@ int main() {
             else if(playgame.snake->headDirection == 3) handlePrev = 'A';
             else if(playgame.snake->headDirection == 4) handlePrev = 'B';
             handle = handlePrev;
-            //cout << handle << endl;
         }
-        //cout << handle << endl;
         if(playgame.snake->headDirection == 1){
             playgame.snake->move_left();
             handlePrev = 'D';
@@ -45,31 +43,20 @@ int main() {
             handlePrev = 'B';
         }
         if(handle == 'C'){
-            //cout << " prev " << playgame.snake->getHeadPos()[0] <<" "<<playgame.snake->getHeadPos()[1] << endl;;
             playgame.snake->headDirection = 2;
             handlePrev = 'C';
-
-            //cout << " next " << playgame.snake->getHeadPos()[0]<<" "<<playgame.snake->getHeadPos()[1] << endl;
         }
         else if(handle == 'D'){
-            //cout << " prev " << playgame.snake->getHeadPos()[0] <<" "<<playgame.snake->getHeadPos()[1] << endl;
             handlePrev = 'D';
             playgame.snake->headDirection = 1;
-            //cout << " next " << playgame.snake->getHeadPos()[0]<<" "<<playgame.snake->getHeadPos()[1] << endl;
-
         }
         else if(handle == 'A'){
-            //cout << " prev " << playgame.snake->getHeadPos()[0] <<" "<<playgame.snake->getHeadPos()[1] << endl;
             playgame.snake->headDirection = 3;
             handlePrev = 'A';
-            //cout << " next " << playgame.snake->getHeadPos()[0]<<" "<<playgame.snake->getHeadPos()[1] << endl;
         }
         else if(handle == 'B'){
-            //cout << " prev " << playgame.snake->getHeadPos()[0] <<" "<<playgame.snake->getHeadPos()[1] << endl;
             playgame.snake->headDirection = 4;
             handlePrev = 'B';   
-            //cout << " next " << playgame.snake->getHeadPos()[0]<<" "<<playgame.snake->getHeadPos()[1] << endl;
         }
-
     }
 }

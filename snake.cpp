@@ -151,6 +151,61 @@ void Snake::gate(int g2x, int g2y){ //49, 24
     else if(g2y == 0){
       headDirection = 4;
     }
+    else{
+      if(headDirection == 1){
+        if(gameMap->getPosition(g2y, g2x-1) == 0){
+          headDirection = 1;
+        }
+        else if(gameMap->getPosition(g2y-1, g2x) == 0){
+          headDirection = 3;
+        }
+        else if(gameMap->getPosition(g2y+1, g2x) == 0){
+          headDirection = 4;
+        }
+        else{
+          headDirection = 2;
+        }
+      }
+      else if(headDirection == 2)
+        if(gameMap->getPosition(g2y, g2x+1) == 0){
+          headDirection = 2;
+        }
+        else if(gameMap->getPosition(g2y+1, g2x) == 0){
+          headDirection = 4;
+        }
+        else if(gameMap->getPosition(g2y-1, g2x) == 0){
+          headDirection = 3;
+        }
+        else{
+          headDirection = 1;
+        }
+      else if (headDirection == 3)
+        if(gameMap->getPosition(g2y-1, g2x) == 0){
+          headDirection = 3;
+        }
+        else if(gameMap->getPosition(g2y, g2x+1) == 0){
+          headDirection = 2;
+        }
+        else if(gameMap->getPosition(g2y, g2x-1) == 0){
+          headDirection = 1;
+        }
+        else{
+          headDirection = 4;
+        }
+      else if(headDirection == 4)
+        if(gameMap->getPosition(g2y+1, g2x) == 0){
+          headDirection = 4;
+        }
+        else if(gameMap->getPosition(g2y, g2x-1) == 0){
+          headDirection = 1;
+        }
+        else if(gameMap->getPosition(g2y, g2x-1) == 0){
+          headDirection = 2;
+        }
+        else{
+          headDirection = 3;
+        }
+    }
 
 }
 
