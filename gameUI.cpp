@@ -37,10 +37,10 @@ void GameUI::PrintGame() {
                     mvprintw(i+2, j+4, " ");
                     break;
                 case 1:
-                    mvprintw(i+2, j+4, "-");
+                    mvprintw(i+2, j+4, "\u25A0");
                     break;
                 case 2:
-                    mvprintw(i+2, j+4, "X");
+                    mvprintw(i+2, j+4, "\u25CF");
                     break;
                 case 3:
                     mvprintw(i+2, j+4, "@");
@@ -55,10 +55,7 @@ void GameUI::PrintGame() {
                     mvprintw(i+2, j+4, "\u2605");
                     break;
                 case 7:
-                    mvprintw(i+2, j+4, "#");
-                    break;
-                case 8:
-                    mvprintw(i+2, j+4, "-");
+                    mvprintw(i+2, j+4, "\u25A1");
                     break;
             }
         }
