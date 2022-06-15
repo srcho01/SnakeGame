@@ -28,10 +28,20 @@ void GameUI::initUI() { // 배경화면 생성
     PrintScore();
     PrintMission();
     refresh();
+    
+        //if (playgame->isWin()) {
+        //PrintGameClear();
+        //getch();
+    
 }
 
 GameUI::~GameUI() {
     // 창 종료
+    if(playgame->isWin())
+        PrintGameClear();
+    else
+        PrintGameOver();
+    getch();
     endwin();
 }
 
@@ -96,21 +106,23 @@ void GameUI::PrintGame() {
 }
 
 void GameUI::PrintGameClear() {
-    mvprintw( 8, 1, "  _____   _                       _");
-    mvprintw( 9, 1 ," /  __ | | |                     | |");
-    mvprintw( 10, 2, "| | |_| | |   ___   __ _  _ __  | |");
-    mvprintw( 11, 2, "| |  _  | | /  _ | / _` || '__| | |");
-    mvprintw( 12, 2, "| |_| | | | | ___/| (_| || |    |_|");
-    mvprintw( 13, 2, "|_____/ |_| |____| |__,_||_|    (_)");
+    mvprintw( 8, 10, " _____   _                       _");
+    mvprintw( 9, 10, "/  __ | | |                     | |");
+    mvprintw( 10, 10, "| | |_| | |   ___   __ _  _ __  | |");
+    mvprintw( 11, 10, "| |  _  | | /  _ | / _` || '__| | |");
+    mvprintw( 12, 10, "| |_| | | | | ___/| (_| || |    |_|");
+    mvprintw( 13, 10, "|_____/ |_| |____| |__,_||_|    (_)");
+    refresh();
+    usleep(40000);
 }
 
 void GameUI::PrintGameOver() {
-    mvprintw( 15, 2, "______         _   _   _");
-    mvprintw( 16, 2 ,"|  ___|       (_) | | | |");
-    mvprintw( 17, 2, "| |_    __ _   _  | | | |");
-    mvprintw( 18, 2, "|  _|  / _` | | | | | | |");
-    mvprintw( 19, 2, "| |   | (_| | | | | | |_|");
-    mvprintw( 20, 2, "|_|   |___,_| |_| |_| (_))"); 
+    mvprintw( 15, 10, "______         _   _   _");
+    mvprintw( 16, 10 ,"|  ___|       (_) | | | |");
+    mvprintw( 17, 10, "| |_    __ _   _  | | | |");
+    mvprintw( 18, 10, "|  _|  / _` | | | | | | |");
+    mvprintw( 19, 10, "| |   | (_| | | | | | |_|");
+    mvprintw( 20, 10, "|_|   |___,_| |_| |_| (_))"); 
 }
 
 void GameUI::update(unsigned time) {
