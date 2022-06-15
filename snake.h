@@ -22,7 +22,7 @@ public:
     void move_up();
     void move_down();
     void grow();
-    void posion(int itemx, int itemy);
+    void posion();
     void gate(int bodyDirection, int g2x, int g2y);
     int* getHeadPos();
     pair<int,int> getBodyPos(int num);

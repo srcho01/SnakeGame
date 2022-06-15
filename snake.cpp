@@ -126,10 +126,13 @@ void Snake::grow()
   }
 }
 
-void Snake::posion(int itemx, int itemy){
-  tail[0] = body.back().first;
-  tail[1] = body.back().second;
-  body.pop_back();  
+void Snake::posion(){
+    int tx = body.back().second;
+    int ty = body.back().first;
+    gameMap->changeMap(tail[0], tail[1], 0);
+    tail[0] = ty;
+    tail[1] = tx;
+    body.pop_back();
 }
 
 void Snake::gate(int bodyDirection, int g2x, int g2y){
