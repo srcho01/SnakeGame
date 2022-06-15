@@ -73,11 +73,16 @@ void PlayGame::countPoint() {
     }
     else if(headPos == 7 && firstBodyPos == 7){ 
         gateNum++;
-        for(int i =0; i < 4; i+=2){
-            if(gate->currGate[i] != snake->getHeadPos()[0]){
-                snake->gate(snake->headDirection, gate->currGate[i+1], gate->currGate[i]);
-            }
-            
+        if(gate->currGate[0] != snake->getHeadPos()[0]){
+            snake->gate(gate->currGate[1], gate->currGate[0]);
+            cout << 123 << endl;
+        }else if (gate->currGate[2] != snake->getHeadPos()[0]){
+            snake->gate( gate->currGate[3], gate->currGate[2]);
+            cout <<9999 <<endl;
         }
-    }; // head가 gate 통과 시 gate 점수가 중복 카운트되지 않도록 함
+        else{
+            cout << "errrrrr" <<endl;
+        }
+    }
+     // head가 gate 통과 시 gate 점수가 중복 카운트되지 않도록 함
 } 
