@@ -76,9 +76,9 @@ void PlayGame::countPoint() {
     else if(headPos == 7){ 
         gateNum += 0.5; // 게이트 한 쌍(2칸)을 통과하면 1점이 올라가도록
         if(gate->currGate[0] == snake->getHeadPos()[0]){
-            snake->gate(gate->currGate[3], gate->currGate[2]);
+            snake->gate(gate->currGate[3], gate->currGate[2], gate->currGate[1],gate->currGate[0]);
         }else if (gate->currGate[2] == snake->getHeadPos()[0]){
-            snake->gate( gate->currGate[1], gate->currGate[0]);
+            snake->gate( gate->currGate[1], gate->currGate[0],gate->currGate[3],gate->currGate[2]);
         }
     }
 } 
