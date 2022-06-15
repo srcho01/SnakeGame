@@ -3,8 +3,8 @@ CCFLAGS = -g
 NCURSESFLAG = -lncursesw
 TARGET = SnakeGame.exe
 
-# ÄÄÆÄÀÏ¿¡ ÇÊ¿äÇÑ ¼Ò½º ÆÄÀÏÀ» ¾Æ·¡¿¡ Ãß°¡ÇØÁÖ¼¼¿ä (°ø¹éÀ¸·Î ±¸ºÐ, Çì´õ ÆÄÀÏ X)
-SOURCES = main.cpp gameUI.cpp map.cpp mapData.cpp snake.cpp PlayGame.cpp Item.cpp Gate.cpp
+# ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½Ê¿ï¿½ï¿½ï¿½ ï¿½Ò½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ï¿½ï¿½ï¿½Ö¼ï¿½ï¿½ï¿½ (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ X)
+SOURCES = main.cpp gameUI.cpp map.cpp mapData.cpp snake.cpp PlayGame.cpp Item.cpp Gate.cpp kbhit.cpp
 
 all: $(TARGET)
 
