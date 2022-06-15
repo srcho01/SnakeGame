@@ -31,8 +31,6 @@ void Snake::mapUpdate(int x, int y) {
     int ty = this->getTailPos()[0];
     gameMap->changeMap(ty,tx,4);
     gameMap->changeMap(y,x,0);
-    gameMap->changeMap(gy, gx,7);
-    gameMap->changeMap(gy2, gx2, 7);
     gameMap->changeMap(0,0,2);
     
 
