@@ -15,10 +15,11 @@ bool PlayGame::playing() {
 
     // gate 생성
     if(gate->currGate.size() == 4) {
-        int g1 = gameMap->getPosition(gate->currGate[0], gate->currGate[1]);
-        int g2 = gameMap->getPosition(gate->currGate[2], gate->currGate[3]);
-        //snake->setGate(gate->currGate[3], gate->currGate[2]);
-        if(g1 != 3 && g2 != 3) gate->makeGate(currStage, startTime); // 뱀이 지나가는 중일 때는 gate 위치 변경 X
+
+        int hx = snake->getHeadPos()[0];
+        int hy = snake->getHeadPos()[1];
+        if(!(hx == gate->currGate[0] && hy == gate->currGate[1]) && !(hx == gate->currGate[2] && hy == gate->currGate[3]))
+            gate->makeGate(currStage, startTime); // 뱀이 지나가는 중일 때는 gate 위치 변경 X
     } else gate->makeGate(currStage, startTime);
 
 
