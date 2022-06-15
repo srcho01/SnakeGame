@@ -8,8 +8,8 @@ Gate::Gate() {
 }
 
 void Gate::makeGate(int stage, const time_t &startTime) {
-
-    if((time(NULL) - startTime) % 20 == 0 && currGate.size() != 0) {
+    if(currGate.size() != 0 && (time(NULL) - startTime) % 20 != 0) return;
+    else if(currGate.size() != 0) {
         for(int i=0; i<currGate.size(); i+=2)
             gameMap->changeMap(currGate[i], currGate[i+1], 1);
         currGate.clear();

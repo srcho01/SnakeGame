@@ -2,11 +2,10 @@
 #include <iostream>
 PlayGame::PlayGame(): win(false) {
     currStage = gameMap->getCurrentStage();
-    startTime = time(NULL);
-
     snake = new Snake;
     item = new Item;
     gate = new Gate;
+    startTime = time(NULL);
 }
 
 bool PlayGame::playing() {
@@ -43,26 +42,30 @@ bool PlayGame::playing() {
         gameMap->setMap(++currStage); // 다음 단계로 stage 변경
 
         delete snake;
-        snake = new Snake(); // 스네이크 객체 재생성하여 초기화
+        delete item;
+        delete gate;
+        snake = new Snake; // 스네이크 객체 재생성하여 초기화
+        item = new Item; // 스네이크 객체 재생성하여 초기화
+        gate = new Gate; // 스네이크 객체 재생성하여 초기화
 
         bodyLen = 3, growthNum = 0, poisonNum = 0, gateNum = 0; // 변수 전부 초기값으로
         for(auto &b: success) b = false; // 미션 성공 여부 체크 배열 false로 초기화
-        startTime = time(NULL)-2; // 현재 시간 재설정
+        startTime = time(NULL); // 현재 시간 재설정
     }
 
     return true; // 게임 계속
 }
 
 void PlayGame::playingStage(int stage) {
-    success[0] = (snake->getBodyLen() >= mission[stage-1][0]) ? true : false;
+    success[0] = (bodyLen >= mission[stage-1][0]) ? true : false;
     success[1] = (growthNum >= mission[stage-1][1]) ? true : false;
     success[2] = (poisonNum >= mission[stage-1][2]) ? true : false;
     success[3] = (gateNum >= mission[stage-1][3]) ? true : false;
 }
 
 void PlayGame::countPoint() {
+    bodyLen = snake->getBodyLen();
     int headPos = snake->prevHead;
-    int firstBodyPos = gameMap->getPosition(snake->getBodyPos(0).first, snake->getBodyPos(0).second);
     if(headPos == 5) {
         growthNum++;
         snake->grow();
@@ -72,7 +75,7 @@ void PlayGame::countPoint() {
         snake->posion();
     }
     else if(headPos == 7){ 
-        gateNum += 0.5;
+        gateNum += 0.5; // 게이트 한 쌍(2칸)을 통과하면 1점이 올라가도록
         if(gate->currGate[0] == snake->getHeadPos()[0]){
             snake->gate(gate->currGate[3], gate->currGate[2]);
         }else if (gate->currGate[2] == snake->getHeadPos()[0]){
