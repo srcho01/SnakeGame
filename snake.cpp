@@ -7,14 +7,14 @@ Snake::Snake()
     head = new int[2];
     tail = new int[2];
     head[0] = 2;  //head's y
-    head[1] = 12; //head's x
+    head[1] = 25; //head's x
     tail[0] = 2;  //tail's y
-    tail[1] = 14; //tail's x
-    pair<int, int> bd = make_pair(2, 13);
-    body.push_back(bd);
-    gameMap->changeMap(2, 12, 3);
-    gameMap->changeMap(2, 13, 4);
-    gameMap->changeMap(2, 14, 4);
+    tail[1] = 27; //tail's x
+    body[0][0] = 2;
+    body[0][1] = 26;
+    gameMap->changeMap(head[0], head[1], 3);
+    gameMap->changeMap(body[0][0], body[0][1], 4);
+    gameMap->changeMap(tail[0], tail[1], 4);
 }
 
 void Snake::mapUpdate() {
