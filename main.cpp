@@ -13,6 +13,7 @@ int main() {
     int handle;
     int handlePrev = 'D';
     while(gameUI.playgame->playing()) {
+
         gameUI.update(100000); // ���� : microseconds (1s = 1000000ms)
         gameUI.updateScore(10000);
         gameUI.updateMission(10000);
@@ -25,7 +26,6 @@ int main() {
             else if(gameUI.playgame->snake->headDirection == 2) handlePrev = 'C';
             else if(gameUI.playgame->snake->headDirection == 3) handlePrev = 'A';
             else if(gameUI.playgame->snake->headDirection == 4) handlePrev = 'B';
-            else handle = handlePrev;
             handle = handlePrev;
         }
         if(gameUI.playgame->snake->headDirection == 1){
@@ -44,7 +44,6 @@ int main() {
             gameUI.playgame->snake->move_down();
             handlePrev = 'B';
         }
-        else handle = handlePrev;
         if(handle == 'C'){
             gameUI.playgame->snake->headDirection = 2;
             handlePrev = 'C';

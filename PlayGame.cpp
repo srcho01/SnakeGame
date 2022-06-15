@@ -17,8 +17,11 @@ bool PlayGame::playing() {
     if(gate->currGate.size() == 4) {
         int g1 = gameMap->getPosition(gate->currGate[0], gate->currGate[1]);
         int g2 = gameMap->getPosition(gate->currGate[2], gate->currGate[3]);
+        //snake->setGate(gate->currGate[3], gate->currGate[2]);
         if(g1 != 3 && g2 != 3) gate->makeGate(currStage, startTime); // 뱀이 지나가는 중일 때는 gate 위치 변경 X
     } else gate->makeGate(currStage, startTime);
+
+
 
     countPoint(); // 점수 업데이트
 
@@ -52,7 +55,6 @@ bool PlayGame::playing() {
         for(auto &b: success) b = false; // 미션 성공 여부 체크 배열 false로 초기화
         startTime = time(NULL); // 현재 시간 재설정
     }
-
     return true; // 게임 계속
 }
 
@@ -78,8 +80,11 @@ void PlayGame::countPoint() {
         gateNum++;
         if(gate->currGate[0] == snake->getHeadPos()[0]){
             snake->gate(gate->currGate[3], gate->currGate[2], gate->currGate[1],gate->currGate[0]);
+            //snake->setGate(gate->currGate[3], gate->currGate[2]);
         }else if (gate->currGate[2] == snake->getHeadPos()[0]){
             snake->gate( gate->currGate[1], gate->currGate[0],gate->currGate[3],gate->currGate[2]);
+            //snake->setGate(gate->currGate[1], gate->currGate[0]);
         }
     }
+
 } 

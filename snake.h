@@ -14,6 +14,8 @@ private:
 public:
     int headDirection;// left: 1, right: 2, up: 3, down: 4
     int prevHead;
+    int gx, gy;
+    bool check = false;
     
     Snake();
     void mapUpdate(int x, int y);
@@ -28,5 +30,9 @@ public:
     pair<int,int> getBodyPos(int num);
     int* getTailPos();
     int getBodyLen();
+    void setGate(int x, int y){
+        gx = x;
+        gy = y;
+    }
 };
 #endif
