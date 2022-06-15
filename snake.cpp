@@ -176,7 +176,7 @@ int Snake::getBodyLen() {
     int len = 0;
     for(int i = 0; i < 100; i++){
       if(body[i][0] != 0) len++;
-      else return len;
+      else return len + 2;
     }
-    return len;
+    return len +2 ;
 }
