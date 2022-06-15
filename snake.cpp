@@ -104,22 +104,22 @@ void Snake::move_down()
 
 void Snake::grow()
 { 
-  if(headDirection = 1){
+  if(headDirection == 1){
     pair<int,int> tmp = make_pair(head[0], head[1]);
     head[1] -= 1;
     body.push_front(tmp);
   }
-  else if(headDirection = 2){
+  else if(headDirection == 2){
     pair<int,int> tmp = make_pair(head[0], head[1]);
     head[1] += 1;
     body.push_front(tmp);
   }
-   else if(headDirection = 3){
+   else if(headDirection == 3){
     pair<int,int> tmp = make_pair(head[0], head[1]);
     head[0] -= 1;
     body.push_front(tmp);
   }
-  else if(headDirection = 4){
+  else if(headDirection == 4){
     pair<int,int> tmp = make_pair(head[0], head[1]);
     head[0] += 1;
     body.push_front(tmp);
