@@ -75,7 +75,7 @@ void PlayGame::countPoint() {
         gateNum++;
         for(int i =0; i < 4; i+=2){
             if(gate->currGate[i] != snake->getHeadPos()[0]){
-                snake->gate(snake->headDirection, gate->currGate[i], gate->currGate[i+1]);
+                snake->gate(snake->headDirection, gate->currGate[i+1], gate->currGate[i]);
             }
             
         }

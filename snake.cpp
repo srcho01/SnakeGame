@@ -141,7 +141,7 @@ void Snake::gate(int bodyDirection, int g2x, int g2y){
       head[1] = g2x - 1;
     }
     else if(bodyDirection == 77){
-      head[0] = g2y;
+       head[0] = g2y;
       head[1] = g2x + 1;
     }
     else if(bodyDirection == 72){
