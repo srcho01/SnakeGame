@@ -6,8 +6,6 @@
 using namespace std;
 extern Map *gameMap;
 
-int prevHead;
-
 class Snake {
 private:
     int *head, *tail;
@@ -15,6 +13,8 @@ private:
     int headDirection = 75; // left: 75, right: 77, up: 72, down: 80
 
 public:
+    int prevHead;
+    
     Snake();
     void mapUpdate();
     void move_left();

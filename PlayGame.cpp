@@ -26,10 +26,10 @@ bool PlayGame::playing() {
     playingStage(currStage); // 미션 성공 여부 갱신
 
     // 게임 실패로 종료
-    int headPos = gameMap->getPosition(snake->getHeadPos()[0], snake->getHeadPos()[1]); // 현재 머리 위치
-    if(headPos == 1 || headPos == 2 || headPos == 8) return false; // 스네이크가 벽에 박음
+    int headPos = snake->prevHead; // 현재 머리 위치
+    if(headPos == 1 || headPos == 2) return false; // 스네이크가 벽에 박음
     if(headPos == 4) return false; // 자기 몸에 박음 (진행 방향과 반대 방향으로 가는 경우 포함)
-    if(snake->getBodyLen() < 1) return false; // 몸 길이 < 1
+    if(snake->getBodyLen() < 3) return false; // 몸 길이 < 1
 
     // 미션 성공
     //// 미션 성공 개수 count
