@@ -23,8 +23,8 @@ void GameUI::initUI() { // 배경화면 생성
     border(' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '); 
     attroff(COLOR_PAIR(2));
     mvprintw(10, 20, "If you want to start a game,");
-    mvprintw(13 , 25,  "Press any key");
-    getch();
+    mvprintw(13 , 25,  "Press Enter");
+    int tmp = getch();
     PrintScore();
     PrintMission();
     refresh();
