@@ -6,6 +6,8 @@
 using namespace std;
 extern Map *gameMap;
 
+int prevHead;
+
 class Snake {
 private:
     int *head, *tail;

@@ -14,12 +14,12 @@ int main() {
 
     while(playgame.playing()) {
         gameUI.update(1000000); // ���� : microseconds (1s = 1000000ms)
-        int handle= 68;
+        int handle;
         int handlePrev = KEY_LEFT;
 
         if(kbhit()){
             handle = getch();
-            //cout << handle << endl;
+            cout << handle << endl;
         }
         else{
             handle = handlePrev;
@@ -49,7 +49,7 @@ int main() {
             playgame.snake->move_down();
             handlePrev = KEY_DOWN;
             //cout << " next " << playgame.snake->getHeadPos()[0]<<" "<<playgame.snake->getHeadPos()[1] << endl;
-        }
+        } 
         // else{
         //     if(handlePrev == 67){
         //         //cout << " prev " << playgame.snake->getHeadPos()[0] <<" "<<playgame.snake->getHeadPos()[1] << endl;

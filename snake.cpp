@@ -29,6 +29,7 @@ void Snake::mapUpdate() {
     int tx = this->getTailPos()[1];
     int ty = this->getTailPos()[0];
     gameMap->changeMap(ty, tx, 4);
+
 }
 
 void Snake::move_left()
@@ -39,7 +40,8 @@ void Snake::move_left()
   tail[0] = body.back().first;
   tail[1] = body.back().second;
   this->mapUpdate();
-}
+  prevHead = gameMap -> getPosition(tmp.first, tmp.second);
+  }
 
 void Snake::move_right()
 {
@@ -49,6 +51,8 @@ void Snake::move_right()
   tail[0] = body.back().first;
   tail[1] = body.back().second;
   this->mapUpdate();
+  prevHead = gameMap -> getPosition(tmp.first, tmp.second);
+
 }
 
 void Snake::move_up()
@@ -59,6 +63,8 @@ void Snake::move_up()
   tail[0] = body.back().first;
   tail[1] = body.back().second;
   this->mapUpdate();
+  prevHead = gameMap -> getPosition(tmp.first, tmp.second);
+
 }
 
 void Snake::move_down()
@@ -69,6 +75,8 @@ void Snake::move_down()
   tail[0] = body.back().first;
   tail[1] = body.back().second;
   this->mapUpdate();
+  prevHead = gameMap -> getPosition(tmp.first, tmp.second);
+
 }
 
 void Snake::grow(int itemx, int itemy)
