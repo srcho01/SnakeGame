@@ -36,34 +36,33 @@ void Snake::move_left()
 {
   pair<int,int> tmp = make_pair(head[0], head[1]);
   head[1] -= 1;
+  prevHead = gameMap -> getPosition(head[0], head[1]);
   body.push_front(tmp);
   tail[0] = body.back().first;
   tail[1] = body.back().second;
   this->mapUpdate();
-  prevHead = gameMap -> getPosition(tmp.first, tmp.second);
   }
 
 void Snake::move_right()
 {
   pair<int,int> tmp = make_pair(head[0], head[1]);
   head[1] += 1;
+  prevHead = gameMap -> getPosition(head[0], head[1]);
   body.push_front(tmp);
   tail[0] = body.back().first;
   tail[1] = body.back().second;
   this->mapUpdate();
-  prevHead = gameMap -> getPosition(tmp.first, tmp.second);
-
 }
 
 void Snake::move_up()
 {
   pair<int,int> tmp = make_pair(head[0], head[1]);
   head[0] -= 1;
+  prevHead = gameMap -> getPosition(head[0], head[1]);
   body.push_front(tmp);
   tail[0] = body.back().first;
   tail[1] = body.back().second;
   this->mapUpdate();
-  prevHead = gameMap -> getPosition(tmp.first, tmp.second);
 
 }
 
@@ -71,11 +70,11 @@ void Snake::move_down()
 {
   pair<int,int> tmp = make_pair(head[0], head[1]);
   head[0] += 1;
+  prevHead = gameMap -> getPosition(head[0], head[1]);
   body.push_front(tmp);
   tail[0] = body.back().first;
   tail[1] = body.back().second;
   this->mapUpdate();
-  prevHead = gameMap -> getPosition(tmp.first, tmp.second);
 
 }
 
