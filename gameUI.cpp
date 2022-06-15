@@ -34,24 +34,29 @@ GameUI::~GameUI() {
     // 창 종료
     endwin();
 }
+
 // score 화면
 void GameUI::PrintScore() {
     mvprintw(2, 80, "< Score >");
     mvprintw(3, 75, "--------------------");
-    mvprintw(5, 70, "B : ");
-    mvprintw(6, 70, "+ : ");
-    mvprintw(7, 70, "- : ");
-    mvprintw(8, 70, "G : ");
-    
+    mvprintw(5, 70, "B : "); mvprintw(5, 75, std::to_string(playgame->getBodyNum()).c_str());
+    mvprintw(6, 70, "+ : "); mvprintw(6, 75, std::to_string(playgame->getGrowthNum()).c_str());
+    mvprintw(7, 70, "- : "); mvprintw(7, 75, std::to_string(playgame->getPoisonNum()).c_str());
+    mvprintw(8, 70, "G : "); mvprintw(8, 75, std::to_string(playgame->getGateNum()).c_str());
 }
+
 // mission 화면
 void GameUI::PrintMission() {
     mvprintw(15, 80, "< Mission >");
     mvprintw(16, 75, "--------------------");
     mvprintw(18, 70, "B : ");
+    mvprintw(18, 75, std::to_string(playgame->getMission(playgame->currStage, 0)).c_str());
     mvprintw(19, 70, "+ : ");
+    mvprintw(19, 75, std::to_string(playgame->getMission(playgame->currStage, 1)).c_str());
     mvprintw(20, 70, "- : ");
+    mvprintw(20, 75, std::to_string(playgame->getMission(playgame->currStage, 2)).c_str());
     mvprintw(21, 70, "G : ");
+    mvprintw(21, 75, std::to_string(playgame->getMission(playgame->currStage, 3)).c_str());
 }
 
 // main 화면

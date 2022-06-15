@@ -34,6 +34,8 @@ public:
     bool playing();
     void playingStage(int stage);
     void countPoint();
+    int getMission(int x, int y) {return mission[x][y];}
+    int getBodyNum() {return bodyLen;}
     int getGrowthNum() {return growthNum;}
     int getPoisonNum() {return poisonNum;}
     int getGateNum() {return gateNum;}
