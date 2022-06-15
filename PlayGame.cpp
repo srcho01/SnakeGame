@@ -21,6 +21,7 @@ bool PlayGame::playing() {
         if(!(hx == gate->currGate[0] && hy == gate->currGate[1]) && !(hx == gate->currGate[2] && hy == gate->currGate[3]))
             gate->makeGate(currStage, startTime); // 뱀이 지나가는 중일 때는 gate 위치 변경 X
     } else gate->makeGate(currStage, startTime);
+    snake->setGate(gate->currGate[1], gate->currGate[0]);
 
 
 
@@ -81,10 +82,10 @@ void PlayGame::countPoint() {
         gateNum++;
         if(gate->currGate[0] == snake->getHeadPos()[0]){
             snake->gate(gate->currGate[3], gate->currGate[2], gate->currGate[1],gate->currGate[0]);
-            //snake->setGate(gate->currGate[3], gate->currGate[2]);
+            snake->setGate(gate->currGate[3], gate->currGate[2]);
         }else if (gate->currGate[2] == snake->getHeadPos()[0]){
             snake->gate( gate->currGate[1], gate->currGate[0],gate->currGate[3],gate->currGate[2]);
-            //snake->setGate(gate->currGate[1], gate->currGate[0]);
+            snake->setGate(gate->currGate[1], gate->currGate[0]);
         }
     }
 
