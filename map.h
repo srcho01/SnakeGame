@@ -13,7 +13,7 @@ class Map {
 public:
     std::vector<int> wall;
 
-    Map(int stage=1);
+    Map(int stage=4);
     void setMap(int stage=1);
     void setWall(int stage);
     int getPosition(int x, int y) {return map[x][y] - '0';}

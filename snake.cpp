@@ -151,6 +151,16 @@ void Snake::gate(int g2x, int g2y){ //49, 24
     else if(g2y == 0){
       headDirection = 4;
     }
+    else{
+      if(headDirection == 1)
+        headDirection == 2;
+      else if(headDirection == 2)
+        headDirection == 1;
+      else if (headDirection == 3)
+        headDirection == 4;
+      else if(headDirection == 4)
+        headDirection == 3;
+    }
 
 }
 
