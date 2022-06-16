@@ -15,7 +15,7 @@ private:
         {4, 1, 0, 0}, // stage 1
         {4, 1, 1, 1}, // stage 2
         {5, 2, 2, 1}, // stage 3
-        {6, 2, 2, 2} // stage 4
+        {6, 2, 2, 2} // stage 
     };
     int bodyLen = 3, growthNum = 0, poisonNum = 0, gateNum = 0;
     bool win;

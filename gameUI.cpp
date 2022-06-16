@@ -28,11 +28,6 @@ void GameUI::initUI() { // 배경화면 생성
     PrintScore();
     PrintMission();
     refresh();
-    
-        //if (playgame->isWin()) {
-        //PrintGameClear();
-        //getch();
-    
 }
 
 GameUI::~GameUI() {
@@ -75,7 +70,7 @@ void GameUI::PrintMission() {
 
 // main 화면
 void GameUI::PrintGame() {
-    mvprintw( 0, 40, "< SNAKE GAME >");
+    mvprintw( 0, 50, "< SNAKE GAME >");
     for (int i=0; i<25; i++) {
         for (int j=0; j<50; j++) {
             switch (gameMap->getPosition(i, j)) {
@@ -110,23 +105,23 @@ void GameUI::PrintGame() {
 }
 
 void GameUI::PrintGameClear() {
-    mvprintw( 8, 10, " _____   _                       _");
-    mvprintw( 9, 10, "/  __ | | |                     | |");
-    mvprintw( 10, 10, "| | |_| | |   ___   __ _  _ __  | |");
-    mvprintw( 11, 10, "| |  _  | | /  _ | / _` || '__| | |");
-    mvprintw( 12, 10, "| |_| | | | | ___/| (_| || |    |_|");
-    mvprintw( 13, 10, "|_____/ |_| |____| |__,_||_|    (_)");
+    mvprintw( 8, 17, " _____   _                       _");
+    mvprintw( 9, 17, "/  __ | | |                     | |");
+    mvprintw( 10, 17, "| | |_| | |   ___   __ _  _ __  | |");
+    mvprintw( 11, 17, "| |  _  | | /  _ | / _` || '__| | |");
+    mvprintw( 12, 17, "| |_| | | | | ___/| (_| || |    |_|");
+    mvprintw( 13, 17, "|_____/ |_| |____| |__,_||_|    (_)");
     refresh();
     usleep(40000);
 }
 
 void GameUI::PrintGameOver() {
-    mvprintw( 15, 10, "______         _   _   _");
-    mvprintw( 16, 10 ,"|  ___|       (_) | | | |");
-    mvprintw( 17, 10, "| |_    __ _   _  | | | |");
-    mvprintw( 18, 10, "|  _|  / _` | | | | | | |");
-    mvprintw( 19, 10, "| |   | (_| | | | | | |_|");
-    mvprintw( 20, 10, "|_|   |___,_| |_| |_| (_))"); 
+    mvprintw( 10, 17, "______         _   _   _");
+    mvprintw( 11, 17 ,"|  ___|       (_) | | | |");
+    mvprintw( 12, 17, "| |_    __ _   _  | | | |");
+    mvprintw( 13, 17, "|  _|  / _` | | | | | | |");
+    mvprintw( 14, 17, "| |   | (_| | | | | | |_|");
+    mvprintw( 15, 17, "|_|   |___,_| |_| |_| (_)"); 
 }
 
 void GameUI::update(unsigned time) {
