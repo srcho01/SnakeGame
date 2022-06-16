@@ -31,6 +31,8 @@ void Snake::mapUpdate(int x, int y) {
     int ty = this->getTailPos()[0];
     gameMap->changeMap(ty,tx,4);
     gameMap->changeMap(y,x,0);
+    gameMap->changeMap(0,0,2);
+    
 
 }
 
@@ -135,7 +137,7 @@ void Snake::posion(){
 }
 
 void Snake::gate(int g2x, int g2y, int g1x, int g1y){ //49, 24
-    head[0] = g2y;
+    head[0] = g2y ;
     head[1] = g2x ;
     if(g2x == 49){
       headDirection = 1;
@@ -206,8 +208,7 @@ void Snake::gate(int g2x, int g2y, int g1x, int g1y){ //49, 24
         }
     }
     gameMap->changeMap(g1y, g1x, 7);
-    gameMap->changeMap(g2y, g2x, 7);
-
+    //setGate(g2x, g2y);
 }
 
 int* Snake::getHeadPos(){

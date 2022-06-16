@@ -17,14 +17,13 @@ private:
         {5, 2, 2, 1}, // stage 3
         {6, 2, 2, 2} // stage 4
     };
-    int bodyLen = 3, growthNum = 0, poisonNum = 0;
-    double gateNum = 0;
+    int bodyLen = 3, growthNum = 0, poisonNum = 0, gateNum = 0;
     bool win;
     time_t startTime;
 
 public:
     int currStage;
-    bool success[5] = {false, false, false, false, false};
+    bool success[4] = {false, false, false, false};
     Snake *snake;
     Item *item;
     Gate *gate;
