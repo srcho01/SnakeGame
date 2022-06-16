@@ -208,7 +208,6 @@ void Snake::gate(int g2x, int g2y, int g1x, int g1y){ //49, 24
         }
     }
     gameMap->changeMap(g1y, g1x, 7);
-    //setGate(g2x, g2y);
 }
 
 int* Snake::getHeadPos(){

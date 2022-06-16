@@ -15,17 +15,14 @@ bool PlayGame::playing() {
 
     // gate 생성
     if(gate->currGate.size() == 4) {
-
         int hx = snake->getHeadPos()[0];
         int hy = snake->getHeadPos()[1];
         if(!(hx == gate->currGate[0] && hy == gate->currGate[1]) && !(hx == gate->currGate[2] && hy == gate->currGate[3]))
             gate->makeGate(currStage, startTime); // 뱀이 지나가는 중일 때는 gate 위치 변경 X
     } else gate->makeGate(currStage, startTime);
     
-    //snake->setGate(gate->currGate[1], gate->currGate[0], gate->currGate[3], gate->currGate[2]);
     gameMap->changeMap(gate->currGate[2], gate->currGate[3], 7);
     gameMap->changeMap(gate->currGate[0], gate->currGate[1], 7);
-
 
     countPoint(); // 점수 업데이트
 
@@ -47,14 +44,12 @@ bool PlayGame::playing() {
         return false; // 게임 종료
     } else if(n == 4) {
         gameMap->setMap(++currStage); // 다음 단계로 stage 변경
-        gameMap->changeMap(gate->currGate[3], gate->currGate[2], 1);
-        gameMap->changeMap(gate->currGate[1], gate->currGate[0], 1);
         delete snake;
         delete item;
         delete gate;
         snake = new Snake; // 스네이크 객체 재생성하여 초기화
-        item = new Item; // 스네이크 객체 재생성하여 초기화
-        gate = new Gate; // 스네이크 객체 재생성하여 초기화
+        item = new Item; // 아이템 객체 재생성하여 초기화
+        gate = new Gate; // 게이트 객체 재생성하여 초기화
 
         bodyLen = 3, growthNum = 0, poisonNum = 0, gateNum = 0; // 변수 전부 초기값으로
         for(auto &b: success) b = false; // 미션 성공 여부 체크 배열 false로 초기화

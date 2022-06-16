@@ -14,7 +14,6 @@ private:
 public:
     int headDirection;// left: 1, right: 2, up: 3, down: 4
     int prevHead;
-    //int gx, gy, gx2, gy2;
     bool check = false;
     
     Snake();
@@ -30,11 +29,5 @@ public:
     pair<int,int> getBodyPos(int num);
     int* getTailPos();
     int getBodyLen();
-    // void setGate(int x, int y, int x2, int y2){
-    //     gx = x;
-    //     gy = y;
-    //     gx2 = x2;
-    //     gy2 = y2;
-    // }
 };
 #endif
