@@ -28,11 +28,6 @@ void GameUI::initUI() { // 배경화면 생성
     PrintScore();
     PrintMission();
     refresh();
-    
-        //if (playgame->isWin()) {
-        //PrintGameClear();
-        //getch();
-    
 }
 
 GameUI::~GameUI() {
