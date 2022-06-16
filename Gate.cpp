@@ -15,12 +15,11 @@ void Gate::makeGate(int stage, const time_t &startTime) {
         currGate.clear();
     }
 
-    int pNum = gameMap->wall.size()/2; // currGate로 만들 수 있는 위치의 좌표를 gameMap의 wall 2차원 벡터에 저장
+    int pNum = gameMap->wall.size()/2;
 
-    srand(time(NULL));
     int p[2] = {-1, -1};
-
     do {
+        srand(time(NULL));
         p[0] = rand() % pNum;
         p[1] = rand() % pNum;
     } while(p[0] == p[1]);
