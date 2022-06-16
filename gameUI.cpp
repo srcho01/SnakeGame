@@ -55,16 +55,16 @@ void GameUI::PrintMission() {
     mvprintw(15, 80, "< Mission >");
     mvprintw(16, 75, "--------------------");
     mvprintw(18, 70, "B : ");
-    mvprintw(18, 75, std::to_string(playgame->getMission(playgame->currStage-1, 0)).c_str());
+    mvprintw(18, 75, std::to_string(playgame->getMission(gameMap->getCurrentStage()-1, 0)).c_str());
     if(playgame->success[0]) mvprintw(18, 78, "( V )"); else mvprintw(18, 78, "(   )");
     mvprintw(19, 70, "+ : ");
-    mvprintw(19, 75, std::to_string(playgame->getMission(playgame->currStage-1, 1)).c_str());
+    mvprintw(19, 75, std::to_string(playgame->getMission(gameMap->getCurrentStage()-1, 1)).c_str());
     if(playgame->success[1]) mvprintw(19, 78, "( V )"); else mvprintw(19, 78, "(   )");
     mvprintw(20, 70, "- : ");
-    mvprintw(20, 75, std::to_string(playgame->getMission(playgame->currStage-1, 2)).c_str());
+    mvprintw(20, 75, std::to_string(playgame->getMission(gameMap->getCurrentStage()-1, 2)).c_str());
     if(playgame->success[2]) mvprintw(20, 78, "( V )"); else mvprintw(20, 78, "(   )");
     mvprintw(21, 70, "G : ");
-    mvprintw(21, 75, std::to_string(playgame->getMission(playgame->currStage-1, 3)).c_str());
+    mvprintw(21, 75, std::to_string(playgame->getMission(gameMap->getCurrentStage()-1, 3)).c_str());
     if(playgame->success[3]) mvprintw(21, 78, "( V )"); else mvprintw(21, 78, "(   )");
 }
 
