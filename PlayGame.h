@@ -15,7 +15,7 @@ private:
         {4, 1, 0, 0}, // stage 1
         {4, 1, 1, 1}, // stage 2
         {5, 2, 2, 1}, // stage 3
-        {6, 2, 2, 2} // stage 
+        {6, 2, 2, 2} // stage 4
     };
     int bodyLen = 3, growthNum = 0, poisonNum = 0, gateNum = 0;
     int currStage;
@@ -38,7 +38,6 @@ public:
     int getGrowthNum() {return growthNum;}
     int getPoisonNum() {return poisonNum;}
     int getGateNum() {return gateNum;}
-    time_t getStartTime() {return startTime;}
 };
 
 #endif
